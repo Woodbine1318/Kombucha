@@ -1,0 +1,25 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"content": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation officia consectetur sint magna velit irure dolore labore eu enim nisi excepteur mollit. Non culpa commodo eiusmod pariatur non. Culpa cillum veniam minim nisi deserunt irure reprehenderit quis est ipsum."
+						}
+					}
+				]
+			},
+			"alignment": {
+				"__TYPE__": "FieldContent",
+				"value": "Left",
+				"type": "Select"
+			}
+		},
+		"items": []
+	}
+]
