@@ -7,5 +7,49 @@ body {
 }
 
 .c-container {
-  @apply px-4 max-w-7xl mx-auto md:px-6 lg:px-8;
+  @apply px-4 max-w-7xl mx-auto md:px-6 lg:px-8 xl:px-16;
+}
+
+.c-rich-text {
+  @apply flex flex-col;
+}
+
+.c-rich-text h2,
+.c-rich-text h3,
+.c-rich-text h4,
+.c-rich-text h5,
+.c-rich-text h6 {
+  @apply font-medium mb-4;
+}
+
+.c-rich-text h2 {
+  @apply text-4xl;
+}
+
+.c-rich-text h3 {
+  @apply text-3xl;
+}
+
+.c-rich-text h4 {
+  @apply text-2xl;
+}
+
+.c-rich-text h5 {
+  @apply text-xl;
+}
+
+.c-rich-text h6 {
+  @apply text-lg;
+}
+
+.c-rich-text p {
+  @apply max-w-[75ch] mb-4;
+}
+
+.c-rich-text a {
+  @apply border-b border-dashed border-black;
+}
+
+.c-rich-text .block-img {
+  @apply max-w-none;
 }

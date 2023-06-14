@@ -39,7 +39,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       />
 
       <div className={`relative flex flex-col w-full h-full text-white bg-black bg-opacity-20 p-8 ${alignment}`}>
-        <h1 className="text-5xl font-bold mb-4">{slice.primary.heading}</h1>
+        <h1 className="text-5xl font-bold mb-4 md:text-6xl">{slice.primary.heading}</h1>
         <PrismicRichText field={slice.primary.body} />
 
         {slice.primary.button_text && slice.primary.button_link ? (

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header>
+    <header className="sticky top-0 bg-white z-10">
       <div className="c-container">
         <p className="font-display text-center text-2xl font-extrabold py-6 border-b border-black border-opacity-5">
           Kombucha

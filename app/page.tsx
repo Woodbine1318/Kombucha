@@ -7,10 +7,8 @@ const Home = async () => {
 
   const page = await client.getByUID('landing_page', 'home');
 
-  console.log({ page });
-
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col">
       <SliceZone slices={page.data.slices} components={components} />
     </main>
   );
