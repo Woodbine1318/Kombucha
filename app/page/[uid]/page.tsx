@@ -3,8 +3,11 @@ import { components } from '@/slices';
 import { SliceZone } from '@prismicio/react';
 import { Metadata, ResolvingMetadata } from 'next';
 
-export const generateMetadata = async ({}: {}, parent?: ResolvingMetadata): Promise<Metadata> => {
-  const page = await prismic.getByUID('landing_page', 'home');
+export const generateMetadata = async (
+  { params }: { params: { uid: string } },
+  parent?: ResolvingMetadata
+): Promise<Metadata> => {
+  const page = await prismic.getByUID('landing_page', params.uid);
   const { meta_title, meta_description } = page.data;
 
   return {
@@ -13,8 +16,8 @@ export const generateMetadata = async ({}: {}, parent?: ResolvingMetadata): Prom
   };
 };
 
-const Home = async () => {
-  const page = await prismic.getByUID('landing_page', 'home');
+const LandingPage = async ({ params }: { params: { uid: string } }) => {
+  const page = await prismic.getByUID('landing_page', params.uid);
 
   return (
     <main className="flex min-h-screen flex-col">
@@ -23,4 +26,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default LandingPage;

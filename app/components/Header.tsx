@@ -1,6 +1,12 @@
+import { prismic } from '@/lib/prismic';
+import { PrismicNextLink } from '@prismicio/next';
 import Link from 'next/link';
 
-const Header = () => {
+const Header = async () => {
+  const nav = await prismic.getSingle('site_navigation', {
+    fetchLinks: 'landing_page.name',
+  });
+
   return (
     <header className="sticky top-0 bg-white z-10">
       <div className="c-container">
@@ -10,16 +16,13 @@ const Header = () => {
 
         <nav className="py-4">
           <ul className="grid grid-cols-[repeat(auto-fit,_minmax(100px,_1fr))] justify-items-center text-sm">
-            <li>
-              <Link className="uppercase text-xs font-medium" href="/about">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className="uppercase text-xs font-medium" href="/about">
-                Contact
-              </Link>
-            </li>
+            {nav.data.links.map(({ link }, index) => (
+              <li key={index}>
+                <PrismicNextLink field={link} className="uppercase text-xs font-medium first-letter:uppercase">
+                  {link.data.name}
+                </PrismicNextLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

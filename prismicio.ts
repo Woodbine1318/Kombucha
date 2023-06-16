@@ -17,7 +17,12 @@ export const repositoryName = config.repositoryName;
 const routes: prismic.ClientConfig['routes'] = [
   {
     type: 'landing_page',
+    uid: 'home',
     path: '/',
+  },
+  {
+    type: 'landing_page',
+    path: '/page/:uid',
   },
 ];
 
