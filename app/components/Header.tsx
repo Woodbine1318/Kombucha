@@ -1,6 +1,5 @@
 import { prismic } from '@/lib/prismic';
 import { PrismicNextLink } from '@prismicio/next';
-import Link from 'next/link';
 
 const Header = async () => {
   const nav = await prismic.getSingle('site_navigation', {
@@ -19,7 +18,7 @@ const Header = async () => {
             {nav.data.links.map(({ link }, index) => (
               <li key={index}>
                 <PrismicNextLink field={link} className="uppercase text-xs font-medium first-letter:uppercase">
-                  {link.data.name}
+                  {(link as { data: { name: string } }).data.name}
                 </PrismicNextLink>
               </li>
             ))}

@@ -5,7 +5,7 @@ import { Metadata, ResolvingMetadata } from 'next';
 
 export const generateMetadata = async (
   { params }: { params: { uid: string } },
-  parent?: ResolvingMetadata
+  parent: ResolvingMetadata
 ): Promise<Metadata> => {
   const page = await prismic.getByUID('blog_post', params.uid);
   const { meta_title, meta_description } = page.data;
