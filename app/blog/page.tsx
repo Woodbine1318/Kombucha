@@ -27,6 +27,8 @@ const BlogPage = async () => {
     ],
   });
 
+  console.log('[K]', { blogPosts });
+
   return (
     <main className="flex min-h-screen flex-col">
       <SliceZone slices={page.data.slices} components={components} />
