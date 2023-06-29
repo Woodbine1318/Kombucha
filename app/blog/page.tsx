@@ -18,6 +18,7 @@ export const generateMetadata = async ({}: {}, parent: ResolvingMetadata): Promi
 const BlogPage = async () => {
   const page = await prismic.getByUID('landing_page', 'blog');
   const blogPosts = await prismic.getAllByType('blog_post', {
+    limit: undefined,
     orderings: [
       {
         field: 'my.blog_post.published_on',
