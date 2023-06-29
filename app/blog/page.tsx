@@ -15,10 +15,15 @@ export const generateMetadata = async ({}: {}, parent: ResolvingMetadata): Promi
   };
 };
 
-const BlogPage = async () => {
+const getPageData = async () => {
   const page = await prismic.getByUID('landing_page', 'blog');
+
+  return page;
+};
+
+const getBlogPosts = async () => {
   const blogPosts = await prismic.getAllByType('blog_post', {
-    limit: undefined,
+    limit: 50,
     orderings: [
       {
         field: 'my.blog_post.published_on',
@@ -27,7 +32,16 @@ const BlogPage = async () => {
     ],
   });
 
-  console.log('[K]', { blogPosts });
+  return blogPosts;
+};
+
+export const revalidate = 3600;
+
+const BlogPage = async () => {
+  const page = await getPageData();
+  const blogPosts = await getBlogPosts();
+
+  console.log('[K]', { page, blogPosts });
 
   return (
     <main className="flex min-h-screen flex-col">
